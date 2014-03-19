@@ -42,8 +42,10 @@
     [url setCachePolicy:NSURLRequestUseProtocolCachePolicy];
     
     NSMutableDictionary *headers = [NSMutableDictionary dictionaryWithCapacity:0];
-    
-    [headers setObject:@"text/xml" forKey:@"Content-Type"];
+    //fix unicode char
+  
+    [headers setObject:@"text/xml; charset=utf-8" forKey:@"Content-Type"];
+// [headers setObject:@"utf-8" forKey:@"charset"];
     [headers setObject:@"utf-8" forKey:@"charset"];
     [headers setObject:@"tr" forKey:@"Lang"];
     [headers setObject:[NSString stringWithFormat:@"http://tempuri.org/%@",functionName] forKey:@"SOAPAction"];
